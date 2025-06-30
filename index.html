@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Green Plant Corpoation</title>
     <style>
+      /* General Reset */
       * {
         margin: 0;
         padding: 0;
@@ -12,106 +13,148 @@
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        color: #222;
-      }
-
-      h1 {
-        font-size: 3rem;
-        color: #1b5e20;
-        margin-bottom: 30px;
-        text-shadow: 2px 2px 6px rgba(0, 255, 150, 0.3);
-      }
-
-      details {
-        width: 600px;
-        padding: 20px; /* ✅ Adds gap from border */
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(15px);
-        border: 2px solid transparent;
-        border-radius: 20px;
-        box-shadow: 0 0 30px rgba(0, 255, 150, 0.2);
-        transition: all 0.5s ease;
-        overflow: hidden;
-        position: relative;
-      }
-
-      details::before {
-        content: "";
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        z-index: -1;
-        background: linear-gradient(45deg, #00e676, #1de9b6, #00bfa5);
-        border-radius: 22px;
-        filter: blur(10px);
-        opacity: 0.6;
-      }
-
-      details:hover {
-        transform: scale(1.015);
-        box-shadow: 0 0 40px rgba(0, 255, 150, 0.4);
-      }
-
-      summary {
-        padding: 25px;
-        font-size: 1.6rem;
-        font-weight: bold;
-        color: #004d40;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        transition: color 0.3s ease;
-      }
-
-      summary::before {
-        content: "🤔";
-        font-size: 1.4rem;
-      }
-
-      details[open] summary::before {
-        content: "💡";
-      }
-
-      details > *:not(summary) {
-        padding: 20px; /* gap from border */
-        font-size: 1.3rem;
-        line-height: 1.8;
+        font-family: Arial, sans-serif;
+        background-color: #f0f8e0; /* Light greenish background */
         color: #333;
-        animation: slideDown 0.4s ease-in-out;
+        line-height: 1.6;
       }
 
-      @keyframes slideDown {
-        from {
+      @keyframes dropFromTop {
+        0% {
           opacity: 0;
-          transform: translateY(-10px);
+          transform: translateY(-100px);
         }
-        to {
+        100% {
           opacity: 1;
           transform: translateY(0);
         }
       }
+
+      header {
+        background-color: #d4edda; /* Light green background */
+        color: #4caf50; /* Green text */
+        padding: 20px 0;
+        text-align: center;
+        border-left: 15px solid #4caf50;
+        border-right: 15px solid #4caf50;
+        border-radius: 30px;
+        margin: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        /* Smooth, user-friendly animation */
+        animation: dropFromTop 1.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+      }
+
+      nav {
+        background-color: #4caf50; /* Darker green */
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        position: relative;
+        width: 100%;
+      }
+
+      nav a {
+        margin: 0 20px;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      nav a {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 5px;
+        transition: color 0.3s;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: #ffffff;
+        transition: width 0.3s;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .container {
+        padding: 20px;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+      }
+
+      .container:hover {
+        background-color: #e8f5e9;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Style each .card normally */
+      .container .card {
+        background-color: #d4edda;
+        padding: 20px;
+        margin-bottom: 0px;
+        border-left: 5px solid #4caf50;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      /* Only cards inside the hovered container should animate */
+      .container:hover .card {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        background-color: #c8e6c9;
+      }
+
+      footer {
+        background-color: #4caf50; /* Darker green */
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
     </style>
   </head>
   <body>
-    <h1>Jam</h1>
-    <details>
-      <summary>Hi Jam</summary>
-      Jam is a cool, calm, and cheerful doggo who brings joy to everyone around
-      him. He loves long walks in nature, playing fetch in big open fields, and
-      snuggling up in cozy blankets after a fun day.
-      <br /><br />
-      He’s loyal, kind-hearted, and always excited to meet new friends. 🐾
-    </details>
+    <header>
+      <h1>Green Plant Corpoation</h1>
+    </header>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+      <div class="card">
+        <h2>About Us</h2>
+        <p>
+          We bring nature's colors to the web with vibrant green and bright
+          yellow themes that pop!
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h2>Our Services</h2>
+        <p>
+          We specialize in eco-friendly design, green branding, and sustainable
+          web solutions.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Green Plant Corpoation. All rights reserved.</p>
+    </footer>
   </body>
 </html>
